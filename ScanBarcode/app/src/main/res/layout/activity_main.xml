@@ -41,8 +41,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
             android:src="@drawable/icoadm"/>
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:text="ADM Name"
             android:textColor="@color/birutext"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"/>
         <androidx.cardview.widget.CardView
@@ -63,7 +63,7 @@
             app:cardElevation="2dp"
             android:layout_gravity="center"
             android:layout_marginEnd="16dp"
-            android:layout_marginStart="10dp">
+            android:layout_marginStart="17dp">
             <Spinner
                 android:id="@+id/adm_name"
                 android:layout_width="match_parent"
@@ -89,8 +89,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/line1">
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
             android:src="@drawable/icoline"/>
@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:text="Line No."
             android:textColor="@color/birutext"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"/>
         <androidx.cardview.widget.CardView
@@ -137,8 +137,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/line2">
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
             android:src="@drawable/icostation"/>
@@ -147,7 +147,7 @@
             android:layout_height="wrap_content"
             android:text="Station"
             android:textColor="@color/birutext"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"/>
         <androidx.cardview.widget.CardView
@@ -159,7 +159,7 @@
             app:cardElevation="2dp"
             android:layout_gravity="center"
             android:layout_marginEnd="16dp"
-            android:layout_marginStart="45dp">
+            android:layout_marginStart="44dp">
             <Spinner
                 android:id="@+id/station"
                 android:layout_width="match_parent"
@@ -185,19 +185,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/line3">
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="14dp"
             android:src="@drawable/icoio"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="In / Out"
             android:textColor="@color/birutext"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:layout_gravity="center"
-            android:layout_marginStart="16dp"/>
+            android:layout_marginStart="10dp"/>
         <androidx.cardview.widget.CardView
             android:id="@+id/cardLayout_inOut"
             android:layout_width="match_parent"
