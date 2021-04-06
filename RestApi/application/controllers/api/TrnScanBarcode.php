@@ -4,7 +4,7 @@ use Restserver\Libraries\REST_Controller;
 
 require APPPATH . '/libraries/REST_Controller.php';
 
-class DataStation extends REST_Controller {
+class TrnScanBarcode extends REST_Controller {
     public function __construct() {
         parent::__construct();
         // Load Model
