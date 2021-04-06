@@ -26,10 +26,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="LYG Scan Barcode"
-            android:textSize="24sp"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
             android:textColor="@color/birutext"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icoexit"
+            android:layout_gravity="center"
+            android:layout_marginStart="190dp"/>
     </LinearLayout>
 
     <LinearLayout
@@ -44,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="15dp"
             android:src="@drawable/icoadm"/>
         <TextView
             android:layout_width="wrap_content"
@@ -53,7 +61,7 @@
             android:textColor="@color/birutext"
             android:textSize="14sp"
             android:layout_gravity="center"
-            android:layout_marginStart="16dp"/>
+            android:layout_marginStart="14dp"/>
         <androidx.cardview.widget.CardView
             android:id="@+id/cardLayout_admName"
             android:layout_width="match_parent"
@@ -197,7 +205,7 @@
             android:textColor="@color/birutext"
             android:textSize="14sp"
             android:layout_gravity="center"
-            android:layout_marginStart="10dp"/>
+            android:layout_marginStart="11dp"/>
         <androidx.cardview.widget.CardView
             android:id="@+id/cardLayout_inOut"
             android:layout_width="match_parent"
@@ -207,7 +215,7 @@
             app:cardElevation="2dp"
             android:layout_gravity="center"
             android:layout_marginEnd="16dp"
-            android:layout_marginStart="43dp">
+            android:layout_marginStart="42dp">
             <Spinner
                 android:id="@+id/in_out"
                 android:layout_width="match_parent"
@@ -239,10 +247,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SCAN BARCODE"
-            android:textSize="24sp"
+            android:textSize="16sp"
+            android:textStyle="bold"
             android:layout_gravity="center"
             android:layout_marginStart="16dp"
             android:textColor="@color/birutext"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="220dp"
+            android:src="@drawable/icoredbarcode"/>
     </LinearLayout>
 
     
