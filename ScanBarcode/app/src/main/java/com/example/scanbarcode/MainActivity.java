@@ -40,7 +40,8 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         Log.v("TAG", rawResult.getBarcodeFormat().toString());
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Scan Result");
-        builder.setMessage(rawResult.getText());
+        builder.setMessage(rawResult.getText() + " (" + rawResult.getBarcodeFormat().toString() + ')');
+        //builder.setMessage(rawResult.getBarcodeFormat().toString());
         AlertDialog alert1 = builder.create();
         alert1.show();
 
