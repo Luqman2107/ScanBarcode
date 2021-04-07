@@ -37,7 +37,10 @@
             android:layout_height="wrap_content"
             android:src="@drawable/icoexit"
             android:layout_gravity="center"
-            android:layout_marginStart="190dp"/>
+            android:layout_marginStart="190dp"
+            android:scaleType="fitXY"/>
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -236,29 +239,33 @@
         android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="1dp"
-        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
         android:background="@color/birubackground"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/line4">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SCAN BARCODE"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:textColor="@color/birutext"/>
 
         <ImageView
             android:id="@+id/img_scan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/icoredbarcode"/>
+            android:layout_marginStart="14dp"
+            android:src="@drawable/icoredbarcode" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:text="SCAN BARCODE"
+            android:textColor="@color/birutext"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

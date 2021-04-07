@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
             }
         });
 
-        Barcode = rawResult.getText() + rawResult.getBarcodeFormat().toString();
+        Barcode = rawResult.getText(); //  + rawResult.getBarcodeFormat().toString()
         Log.e("barcode", Barcode);
         //builder.setMessage(rawResult.getBarcodeFormat().toString());
         AlertDialog alert1 = builder.create();
