@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,7 +39,7 @@ import java.util.List;
 
 public class InputActivity extends AppCompatActivity {
     Spinner dataAdm, dataLine, dataStation, dataInOut;
-    ImageView scanBarcode;
+    ImageView scanBarcode, Exit;
     RequestQueue requestQueue;
 
     List<ModelDataAdm> DataAdmList;
@@ -147,6 +149,36 @@ public class InputActivity extends AppCompatActivity {
                 input.putExtra("intent_stationData", stationData);
                 input.putExtra("intent_inoutData", inoutData);
                 startActivity(input);
+                loadData();
+                finish();
+            }
+        });
+
+        Exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(InputActivity.this);
+                builder.setCancelable(false);
+                //set pesan yang akan ditampilkan
+                builder.setMessage("You want exit ?");
+                //set positive tombol jika menjawab ya
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //jika kalian menekan tombol ya, maka otomatis akan keluar dari activity saat ini
+                        finish();
+                    }
+                });
+                //set negative tombol jika menjawab tidak
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //jika menekan tombol tidak, maka kalian akan tetap berada di activity saat ini
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog alert = builder.create();
+                alert.show();
             }
         });
     }
@@ -159,6 +191,7 @@ public class InputActivity extends AppCompatActivity {
         dataStation = findViewById(R.id.station);
         dataInOut = findViewById(R.id.in_out);
         scanBarcode = findViewById(R.id.img_scan);
+        Exit = findViewById(R.id.img_exit);
     }
 
     public void loadAdm(){
