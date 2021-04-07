@@ -1,6 +1,6 @@
 <CheckedTextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/text1"
-    android:textColor="@color/greytext"
+    android:textColor="@color/black"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="20dp"/>
