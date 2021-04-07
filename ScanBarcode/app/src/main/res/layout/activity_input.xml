@@ -261,5 +261,12 @@
             android:src="@drawable/icoredbarcode"/>
     </LinearLayout>
 
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerDataInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        tools:listitem="@layout/list_datainput"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

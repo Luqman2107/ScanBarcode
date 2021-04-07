@@ -1,6 +1,8 @@
 package com.example.scanbarcode;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,8 +20,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.scanbarcode.Adapter.AdapterDataBarcode;
 import com.example.scanbarcode.ConfigFile.ServerApi;
 import com.example.scanbarcode.Model.ModelDataAdm;
+import com.example.scanbarcode.Model.ModelDataBarcode;
 import com.example.scanbarcode.Model.ModelInOut;
 import com.example.scanbarcode.Model.ModelLine;
 import com.example.scanbarcode.Model.ModelStation;
@@ -46,12 +50,17 @@ public class InputActivity extends AppCompatActivity {
     ArrayAdapter<ModelStation> StationAdapter;
     ArrayAdapter<ModelInOut> InOutAdapter;
 
+    RecyclerView recyclerView;
+    AdapterDataBarcode adapter;
+    List<ModelDataBarcode> item;
+
     String admData, lineData, stationData, inoutData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input);
         init();
+        loadData();
 
         DataAdmList = new ArrayList<>();
         DataAdmList.add(new ModelDataAdm("0", "Select Admin"));
@@ -60,7 +69,7 @@ public class InputActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 ModelDataAdm dataSelected = (ModelDataAdm) adapterView.getSelectedItem();
-                Toast.makeText(InputActivity.this, dataSelected.getSequenceNo() + " " + dataSelected.getAdm_Name(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(InputActivity.this, dataSelected.getSequenceNo() + " " + dataSelected.getAdm_Name(), Toast.LENGTH_SHORT).show();
                 admData = dataSelected.getAdm_Name();
             }
             @Override
@@ -145,6 +154,7 @@ public class InputActivity extends AppCompatActivity {
 
     public void init(){
         requestQueue = Volley.newRequestQueue(this);
+        recyclerView = findViewById(R.id.recyclerDataInput);
         dataAdm = findViewById(R.id.adm_name);
         dataLine = findViewById(R.id.line_no);
         dataStation = findViewById(R.id.station);
@@ -266,5 +276,39 @@ public class InputActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(stringRequest4);
+    }
+
+    public void loadData(){
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, ServerApi.URL_DATASCAN, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray data = jsonObject.getJSONArray("data");
+                    item = new ArrayList<>();
+                    for (int i = 0; i < data.length(); i++)
+                    {
+                        ModelDataBarcode playerModel = new ModelDataBarcode();
+                        JSONObject datae = data.getJSONObject(i);
+                        playerModel.setBarcodeNo(datae.getString("BarcodeNo"));
+                        playerModel.setScanDate(datae.getString("ScanDate"));
+
+                        item.add(playerModel);
+                    }
+                    adapter = new AdapterDataBarcode(InputActivity.this, item);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(InputActivity.this);
+                    recyclerView.setLayoutManager(layoutManager);
+                    recyclerView.setAdapter(adapter);
+                } catch (JSONException e){
+                    Toast.makeText(InputActivity.this, "Codingan Error !", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(InputActivity.this, "No Data !", Toast.LENGTH_LONG).show();
+            }
+        });
+        requestQueue.add(stringRequest);
     }
 }

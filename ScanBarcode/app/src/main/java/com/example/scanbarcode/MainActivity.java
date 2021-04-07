@@ -83,6 +83,10 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
             public void onClick(DialogInterface dialog,int id) {
                 // jika tombol diklik, maka akan menutup activity ini
                 inputData();
+//                Log.e("Hasil", admData);
+//                Log.e("Hasil", lineData);
+//                Log.e("Hasil", stationData);
+//                Log.e("Hasil", inoutData);
             }
         });
         builder.setNegativeButton("Batal",new DialogInterface.OnClickListener() {
@@ -127,15 +131,11 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
             public void onResponse(String response) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    Boolean staus = jsonObject.getBoolean("status");
-                    if (staus) {
-                        Toast.makeText(MainActivity.this, jsonObject.getString("pesan"), Toast.LENGTH_SHORT).show();
-                        Intent save = new Intent(MainActivity.this, InputActivity.class);
-                        startActivity(save);
-                        finish();
-                    } else {
-                        Toast.makeText(MainActivity.this, jsonObject.getString("pesan"), Toast.LENGTH_SHORT).show();
-                    }
+                    String pesan = jsonObject.getString("pesan");
+                    Toast.makeText(MainActivity.this, pesan, Toast.LENGTH_SHORT).show();
+                    Intent save = new Intent(MainActivity.this, InputActivity.class);
+                    startActivity(save);
+                    finish();
                 } catch (JSONException e) {
                     Toast.makeText(MainActivity.this, "Codingan Error !", Toast.LENGTH_LONG).show();
                 }
