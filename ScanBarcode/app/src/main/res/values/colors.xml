@@ -10,4 +10,6 @@
 
     <color name="birubackground">#BCE0FD</color>
     <color name="birutext">#2699FB</color>
+    <color name="greytext">#d6d0d0</color>
+
 </resources>

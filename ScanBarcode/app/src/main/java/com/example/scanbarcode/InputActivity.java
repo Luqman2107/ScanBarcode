@@ -63,7 +63,7 @@ public class InputActivity extends AppCompatActivity {
         loadData();
 
         DataAdmList = new ArrayList<>();
-        DataAdmList.add(new ModelDataAdm("0", "Select Admin"));
+        DataAdmList.add(new ModelDataAdm("0", ""));
         loadAdm();
         dataAdm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -79,7 +79,7 @@ public class InputActivity extends AppCompatActivity {
         });
 
         LineList = new ArrayList<>();
-        LineList.add(new ModelLine("0", "Select Line"));
+        LineList.add(new ModelLine("0", ""));
         loadLine();
         dataLine.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -94,7 +94,7 @@ public class InputActivity extends AppCompatActivity {
         });
 
         StationList = new ArrayList<>();
-        StationList.add(new ModelStation("0", "Select Station"));
+        StationList.add(new ModelStation("0", ""));
         loadStation();
         dataStation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -110,7 +110,7 @@ public class InputActivity extends AppCompatActivity {
         });
 
         InOutList = new ArrayList<>();
-        InOutList.add(new ModelInOut("0", "Select In / Out"));
+        InOutList.add(new ModelInOut("0", ""));
         loadInOut();
         dataInOut.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -147,7 +147,6 @@ public class InputActivity extends AppCompatActivity {
                 input.putExtra("intent_stationData", stationData);
                 input.putExtra("intent_inoutData", inoutData);
                 startActivity(input);
-                finish();
             }
         });
     }
