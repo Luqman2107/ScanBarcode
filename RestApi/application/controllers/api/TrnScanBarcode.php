@@ -29,26 +29,47 @@ class TrnScanBarcode extends REST_Controller {
 
     public function index_post()
     {
-        $arr = [
-            'Adm_Name' => $this->input->post('Adm_Name'),
-            'Line_No' => $this->input->post('Line_No'),
-            'Station_Name' => $this->input->post('Station_Name'),
-            'IO_Name' => $this->input->post('IO_Name'),
-            'BarcodeNo' => $this->input->post('BarcodeNo'),
-            'ScanDate' => date('Y-m-d H:i:s'),
-        ];
-        if ($this->data->insert('trn_scanbarcode', $arr)) {
-            $response = [
-                'status' => true,
-                'pesan' => 'Data Scan berhasil ditambahkan.',
-            ];
-        $this->response($response, 200);
-        } else {
-            $response = [
+        
+        $adm_name = $this->input->post('Adm_Name');
+        $line_no = $this->input->post('Line_No');
+        $station_name = $this->input->post('Station_Name');
+        $io_name = $this->input->post('IO_Name');
+        $barcodeno = $this->input->post('BarcodeNo');
+        
+        $cek = $this->db->get_where('trn_scanbarcode', ['BarcodeNo' => $barcodeno])->row_array();
+
+        if ($cek > 0) 
+        {
+            $response = 
+            [
                 'status' => false,
-                'pesan' => 'Data Scan gagal ditambahkan',
+                'message' => 'Barcode has been scan before!'
             ];
-        $this->response($response, 400);
+            $this->response($response, 400);
+        } else 
+        {
+            $arr = [
+                'Adm_Name' => $this->input->post('Adm_Name'),
+                'Line_No' => $this->input->post('Line_No'),
+                'Station_Name' => $this->input->post('Station_Name'),
+                'IO_Name' => $this->input->post('IO_Name'),
+                'BarcodeNo' => $this->input->post('BarcodeNo'),
+    
+                'ScanDate' => date('Y-m-d H:i:s'),
+            ];
+            if ($this->data->insert('trn_scanbarcode', $arr)) {
+                $response = [
+                    'status' => true,
+                    'pesan' => 'Data Scan berhasil ditambahkan.',
+                ];
+            $this->response($response, 200);
+            } else {
+                $response = [
+                    'status' => false,
+                    'pesan' => 'Data Scan gagal ditambahkan',
+                ];
+            $this->response($response, 400);
+            }
         }
     }
 } 
