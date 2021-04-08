@@ -149,7 +149,7 @@ public class InputActivity extends AppCompatActivity {
                 input.putExtra("intent_stationData", stationData);
                 input.putExtra("intent_inoutData", inoutData);
                 startActivity(input);
-                loadData();
+//                loadData();
                 finish();
             }
         });
