@@ -24,6 +24,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.scanbarcode.Adapter.AdapterDataBarcode;
 import com.example.scanbarcode.ConfigFile.ServerApi;
+import com.example.scanbarcode.ConfigFile.authdata;
 import com.example.scanbarcode.Model.ModelDataAdm;
 import com.example.scanbarcode.Model.ModelDataBarcode;
 import com.example.scanbarcode.Model.ModelInOut;
@@ -41,6 +42,7 @@ public class InputActivity extends AppCompatActivity {
     Spinner dataAdm, dataLine, dataStation, dataInOut;
     ImageView scanBarcode, Exit;
     RequestQueue requestQueue;
+    authdata authdataa;
 
     List<ModelDataAdm> DataAdmList;
     List<ModelLine> LineList;
@@ -96,7 +98,7 @@ public class InputActivity extends AppCompatActivity {
         });
 
         StationList = new ArrayList<>();
-        StationList.add(new ModelStation("0", ""));
+//        StationList.add(new ModelStation("0", ""));
         loadStation();
         dataStation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -112,7 +114,7 @@ public class InputActivity extends AppCompatActivity {
         });
 
         InOutList = new ArrayList<>();
-        InOutList.add(new ModelInOut("0", ""));
+//        InOutList.add(new ModelInOut("0", ""));
         loadInOut();
         dataInOut.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -149,8 +151,8 @@ public class InputActivity extends AppCompatActivity {
                 input.putExtra("intent_stationData", stationData);
                 input.putExtra("intent_inoutData", inoutData);
                 startActivity(input);
-//                loadData();
-                finish();
+                loadData();
+//                finish();
             }
         });
 
@@ -185,6 +187,7 @@ public class InputActivity extends AppCompatActivity {
 
     public void init(){
         requestQueue = Volley.newRequestQueue(this);
+        authdataa = new authdata(this);
         recyclerView = findViewById(R.id.recyclerDataInput);
         dataAdm = findViewById(R.id.adm_name);
         dataLine = findViewById(R.id.line_no);
@@ -207,9 +210,14 @@ public class InputActivity extends AppCompatActivity {
 
                         DataAdmList.add(new ModelDataAdm(itemAdm.getString("SequenceNo"), itemAdm.getString("Adm_Name")));
                     }
+//                    String compareValue = authdataa.getNamaadm().toString();
                     DataAdmAdapter = new ArrayAdapter(InputActivity.this, R.layout.simple_spinner_item, DataAdmList);
                     DataAdmAdapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item);
                     dataAdm.setAdapter(DataAdmAdapter);
+//                    if (compareValue != null) {
+//                        int spinnerPosition = DataAdmAdapter.getPosition(compareValue);
+//                        dataAdm.setSelection(spinnerPosition);
+//                    }
                 } catch (JSONException e) {
                     Toast.makeText(InputActivity.this, "Codingan Error !", Toast.LENGTH_LONG).show();
                 }

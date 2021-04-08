@@ -132,7 +132,9 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     String pesan = jsonObject.getString("pesan");
+                    String message = jsonObject.getString("message");
                     Toast.makeText(MainActivity.this, pesan, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
                     Intent save = new Intent(MainActivity.this, InputActivity.class);
                     startActivity(save);
                     finish();
