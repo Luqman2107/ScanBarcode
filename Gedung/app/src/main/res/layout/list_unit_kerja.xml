@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="150dp"
+    android:layout_marginStart="5dp"
+    android:layout_height="175dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/gambar_unit"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/akunpsn"/>
+        <TextView
+            android:id="@+id/nama_unit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Unit Peternakan"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginTop="10dp"
+            android:textAlignment="textStart"
+            android:textSize="12sp"
+            android:fontFamily="@font/montserrat_regular"
+            android:textColor="@android:color/black"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="textStart"
+        android:textSize="10sp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textColor="@android:color/black"
+        android:text="Deskripsi :"/>
+
+    <TextView
+        android:id="@+id/deskripsi_unit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="@android:color/black"
+        android:fontFamily="@font/montserrat_regular"
+        android:inputType="textMultiLine"
+        android:textSize="9sp"
+        android:text="Unit peternakan di bidang peternakan kambing dan sapi, yg akan di jalankan di tahun 2021 ini, menyediakan Hewan kurban/Akiqoh, pupuk srintil Ori, dan pupuk campuran."/>
+
+</LinearLayout>

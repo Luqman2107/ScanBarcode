@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Gedung</string>
+    <string name="status_menunggu">Pesanan anda sedang dalam  proses konfimasi gedung, siahkan tunggu maks. 2x24 jam</string>
+    <string name="status_diterima">Pesanan anda diterima, silahkan datang ke gedung untuk melakukan pembayaran dan mengurus berkas administrasi</string>
+    <string name="status_dibatalkan">Mohon maaf pesanan anda kami batalkan karena ada agenda pemerintah </string>
+    <string name="status_selesai">Pesanan anda telah Selesai, Terima kasih.</string>
+    <string name="lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</string>
+</resources>

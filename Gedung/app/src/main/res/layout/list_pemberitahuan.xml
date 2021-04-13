@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/listpemberitahuan"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/background">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:id="@+id/foto_status_pemberitahuan"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginStart="10dp"
+                android:src="@drawable/iconstatusmenunggu"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_status_pemberitahuan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="95dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:text="Status Pemesanan"
+                android:textSize="16sp"
+                android:inputType="textMultiLine"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/foto_status_pemberitahuan"
+                app:layout_constraintTop_toTopOf="@+id/foto_status_pemberitahuan" />
+
+            <TextView
+                android:id="@+id/deskripsi_status_pemberitahuan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/status_menunggu"
+                android:layout_marginStart="95dp"
+                android:layout_marginEnd="10dp"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/foto_status_pemberitahuan"
+                app:layout_constraintTop_toBottomOf="@+id/text_status_pemberitahuan" />
+
+            <TextView
+                android:id="@+id/text_tanggal_pemberitahuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21-21-2021"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/deskripsi_status_pemberitahuan" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
