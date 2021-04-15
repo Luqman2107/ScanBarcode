@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/white"
+    tools:context=".SplashScreen">
+
+    <ImageView
+        android:id="@+id/LogoOnSplash"
+        android:layout_width="152dp"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/Fss_Icon"
+        android:src="@drawable/fss_logo_onsplash" />
+
+    <TextView
+        android:id="@+id/HeaderTitleOnSplash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/factory_smart_system"
+        android:textColor="@color/blue_fss"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/VersionTitleOnSplash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/AppsVersion"
+        android:textColor="@color/blue_fss"
+        android:textSize="20sp" />
+
+</LinearLayout>
+
