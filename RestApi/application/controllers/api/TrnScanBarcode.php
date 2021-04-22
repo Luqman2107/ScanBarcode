@@ -13,7 +13,14 @@ class TrnScanBarcode extends REST_Controller {
 
     public function index_get()
     {
-        $trn_scanbarcode = $this->db->get('trn_scanbarcode')->result_array();
+        $sessionid = $this->get('SessionId');
+        if ($sessionid == '') {
+            die;
+        } else {
+            $this->db->where('SessionId', $sessionid);
+            $trn_scanbarcode = $this->db->get('trn_scanbarcode')->result_array();
+        }
+        
         if ($trn_scanbarcode) {
             $this->response([
                 'status' => TRUE,
@@ -22,7 +29,7 @@ class TrnScanBarcode extends REST_Controller {
         } else {
             $this->response([
                 'status' => FALSE,
-                'message' => 'Data Transaksi Tidak Ditemukan'
+                'pesan' => 'Data Not Found!'
             ], REST_Controller::HTTP_NOT_FOUND);
         }
     }
@@ -35,15 +42,23 @@ class TrnScanBarcode extends REST_Controller {
         $station_name = $this->input->post('Station_Name');
         $io_name = $this->input->post('IO_Name');
         $barcodeno = $this->input->post('BarcodeNo');
+        $sessionid = $this->input->post('SessionId');
+        $barcodetype = $this->input->post('BarcodeType');
+        $bartypecode = $this->input->post('BarcodeTypeCode');
         
-        $cek = $this->db->get_where('trn_scanbarcode', ['BarcodeNo' => $barcodeno])->row_array();
+        //$cek = $this->db->get_where('trn_scanbarcode', ['BarcodeNo' => $barcodeno], ['Adm_Name' => $adm_name], ['Line_No' => $line_no], ['Station_Name' => $station_name], ['IO_Name' => $io_name])->row_array();
+        
+        $cek = $this->db->get_where('trn_scanbarcode', ['BarcodeNo' => $barcodeno, 'Adm_Name' => $adm_name, 'Line_No' => $line_no, 'Station_Name' => $station_name, 'IO_Name' => $io_name])->row_array();
+
+
+
 
         if ($cek > 0) 
         {
             $response = 
             [
                 'status' => false,
-                'message' => 'Barcode has been scan before!'
+                'pesan' => 'Barcode has been scan before!'
             ];
             $this->response($response, 400);
         } else 
@@ -54,22 +69,25 @@ class TrnScanBarcode extends REST_Controller {
                 'Station_Name' => $this->input->post('Station_Name'),
                 'IO_Name' => $this->input->post('IO_Name'),
                 'BarcodeNo' => $this->input->post('BarcodeNo'),
-    
+                'SessionId' => $this->input->post('SessionId'),
+                'BarcodeType' => $this->input->post('BarcodeType'),
+                'BarcodeTypeCode' => $this->input->post('BarcodeTypeCode'),
                 'ScanDate' => date('Y-m-d H:i:s'),
             ];
             if ($this->data->insert('trn_scanbarcode', $arr)) {
                 $response = [
                     'status' => true,
-                    'pesan' => 'Data Scan berhasil ditambahkan.',
+                    'pesan' => 'Successfully saved!',
                 ];
             $this->response($response, 200);
             } else {
                 $response = [
                     'status' => false,
-                    'pesan' => 'Data Scan gagal ditambahkan',
+                    'pesan' => 'Saved failed!',
                 ];
             $this->response($response, 400);
             }
         }
     }
 } 
+
