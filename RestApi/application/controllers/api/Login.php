@@ -41,7 +41,7 @@ class Login extends REST_Controller {
                         //load token
                         $this->load->library('Authorization_Token');
                         //generate
-                        $token_data['userID '] = $output->userID ;
+                        $token_data['userID'] = $output->userID ;
                         $token_data['userName'] = $output->userName;
                         $token_data['userNIK'] = $output->userNIK;
                         $token_data['userMail'] = $output->userMail;
@@ -53,7 +53,7 @@ class Login extends REST_Controller {
                         $token_data['LastModifyDate'] = $output->LastModifyDate;
 
                         $return_data = [
-                            'userID ' => $output->userID ,
+                            'userID' => $output->userID ,
                             'userName' => $output->userName,
                             'userNIK' => $output->userNIK,
                             'userMail' => $output->userMail,
